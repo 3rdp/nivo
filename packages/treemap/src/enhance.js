@@ -71,6 +71,7 @@ const commonEnhancers = [
 
             let nodes = leavesOnly ? root.leaves() : root.descendants()
             nodes = nodes.map(d => {
+              // what do this callback function and this HOC do?
                 d.path = computeNodePath(d, getIdentity)
 
                 d.nodeHeight = d.height
@@ -118,11 +119,14 @@ const svgEnhancers = [
 ]
 
 export default Component => {
+  // can we not have the default props here, but have just a function with default params?
     const implDefaultProps = props[`${Component.displayName}DefaultProps`]
 
+  // can we use object instead of a switch statement here? or maybe have the default case in here?
     switch (Component.displayName) {
         case 'TreeMap':
             return compose(
+              // why is array desctructuring used here? it's obsolete I think. HOCs can be composed without that
                 ...[
                     defaultProps(implDefaultProps),
                     ...commonEnhancers,
@@ -143,3 +147,6 @@ export default Component => {
 
     return Component
 }
+// can responsive be a prop? as well as chart type ['svg', 'html', 'canvas'] 'svg' is default?
+// IDEA can treemap gracefully handle two leaves with same name?
+// IDEA can treemap be animated more more performant with immutable data?

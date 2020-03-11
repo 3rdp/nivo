@@ -1,0 +1,22 @@
+The aim of this project is to rewrite Nivo with hooks.
+Not analyze all the lerna dependencies and refactor them.
+Not eliminate lodash/get and other utils.
+Not make sure that nivo bar/treemap work in the most optimal way,
+    and there is no component tree hell like I've already seen.
+There is some hooks. Make sure they're used everywhere.
+There is HOCs. Make sure they're not used most of the time and
+corresponding hooks are used instead.
+
+List of core HOCs (incomplete):
+    "core/src/hocs/withTheme.js"
+    "core/src/hocs/withDimensions.js",
+    "core/src/hocs/withContainer.js",
+    "core/src/hocs/withCurve.js",
+    "core/src/hocs/withHierarchy.js",
+    "core/src/hocs/withMotion.js",
+
+List of core hooks (incomplete):
+useCurveInterpolation
+useDimensions
+usePartialTheme
+useValueFormatter
